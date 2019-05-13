@@ -6,4 +6,9 @@
             <class name="com.scully.SeleniumTest"/>
         </classes>
     </test>
+    <test name="Second Selenium Test">
+        <classes>
+            <class name="com.scully.SecondSeleniumTest"/>
+        </classes>
+    </test>
 </suite>

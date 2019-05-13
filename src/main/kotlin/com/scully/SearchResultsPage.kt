@@ -10,16 +10,17 @@ import com.codeborne.selenide.Selenide.`$`
 import io.qameta.allure.Step
 
 
-class SearchResultsPage {
-
+class SearchResultsPage : BasePage() {
 
     @Step("Get All results as a collection")
     fun getResults(): ElementsCollection {
+        logger.info { "Getting results" }
         return `$$`(byClassName("rc")).filterBy(visible)
     }
 
     @Step("Validate Results contain the following text: {text}")
     fun ensureResultsContains(text: String): SearchResultsPage {
+        logger.info { "Validating results contain at least one instance of '$text'" }
         `$`(withText(text)).shouldBe(visible)
         return this
     }
