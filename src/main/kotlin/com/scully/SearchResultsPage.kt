@@ -12,9 +12,11 @@ import io.qameta.allure.Step
 
 class SearchResultsPage {
 
-    val results: ElementsCollection
-        @Step("Get All results as a collection")
-        get() = `$$`(byClassName("rc")).filterBy(visible)
+
+    @Step("Get All results as a collection")
+    fun getResults(): ElementsCollection {
+        return `$$`(byClassName("rc")).filterBy(visible)
+    }
 
     @Step("Validate Results contain the following text: {text}")
     fun ensureResultsContains(text: String): SearchResultsPage {
@@ -23,8 +25,8 @@ class SearchResultsPage {
     }
 
     @Step("Validate Results have a size of: {size}")
-    fun ensureResultsHaveSize(sizeR: Int): SearchResultsPage {
-        results.shouldHave(size(sizeR))
+    fun ensureResultsHaveSize(expectedSize: Int): SearchResultsPage {
+        getResults().shouldHave(size(expectedSize))
         return this
     }
 }

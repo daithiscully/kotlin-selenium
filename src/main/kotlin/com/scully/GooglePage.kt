@@ -9,7 +9,7 @@ class GooglePage {
 
     @Step("Search for: {text}")
     fun searchFor(text: String): SearchResultsPage {
-        `$`(byName("q")).`val`(text).pressEnter()
+        `$`(byName("q")).setValue(text).pressEnter()
         return page(SearchResultsPage::class.java)
     }
 }
