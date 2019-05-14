@@ -7,7 +7,7 @@ import org.testng.annotations.Test
 class SecondSeleniumTest : BaseTest() {
 
     @Test
-    fun testOne() {
+    fun `Test a google search for Trivium`() {
         logger.info { "Running the Second Selenium Test" }
         println("Thread: " + Thread.currentThread().name)
         open("/", GooglePage::class.java)

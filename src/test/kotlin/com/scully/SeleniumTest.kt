@@ -8,7 +8,7 @@ class SeleniumTest : BaseTest() {
 
 
     @Test
-    fun testOne() {
+    fun `Test a google search for Metallica`() {
         logger.info { "Running the First Selenium Test" }
         println("Thread: " + Thread.currentThread().name)
         open("/", GooglePage::class.java)

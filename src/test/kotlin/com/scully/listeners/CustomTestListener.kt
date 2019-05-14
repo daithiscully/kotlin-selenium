@@ -15,22 +15,22 @@ class CustomTestListener : ITestListener {
 
     override fun onTestSuccess(result: ITestResult) {
         try {
-            this.screenShot()
+            `Screen shot`()
         } catch (e: IOException) {
             throw RuntimeException("Error creating screenshot")
         }
 
-        this.capturePageSource()
+        `HTML Source Code`()
     }
 
 
     override fun onTestFailure(result: ITestResult) {
         try {
-            this.screenShot()
+            `Screen shot`()
         } catch (e: IOException) {
             throw RuntimeException("Error creating screenshot")
         }
-        this.capturePageSource()
+        `HTML Source Code`()
     }
 
     override fun onTestSkipped(result: ITestResult) {}
@@ -42,13 +42,13 @@ class CustomTestListener : ITestListener {
     override fun onFinish(context: ITestContext) {}
 
     @Attachment(type = "text/html")
-    private fun capturePageSource(): String {
+    private fun `HTML Source Code`(): String {
         return WebDriverRunner.source()
     }
 
     @Attachment(type = "image/png")
     @Throws(IOException::class)
-    private fun screenShot(): ByteArray {
+    private fun `Screen shot`(): ByteArray {
         val screenShot = Screenshots.takeScreenShotAsFile()
         return Files.readAllBytes(screenShot.toPath())
     }
