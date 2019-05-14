@@ -26,8 +26,8 @@ class SearchResultsPage : BasePage() {
     }
 
     @Step("Validate Results have a size of: {size}")
-    fun ensureResultsHaveSize(expectedSize: Int): SearchResultsPage {
-        getResults().shouldHave(size(expectedSize))
+    fun ensureResultsHaveSize(expectedNumberOfResults: Int): SearchResultsPage {
+        getResults().shouldHave(size(expectedNumberOfResults))
         return this
     }
 }

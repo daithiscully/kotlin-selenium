@@ -12,8 +12,8 @@ class SeleniumTest : BaseTest() {
         logger.info { "Running the First Selenium Test" }
         println("Thread: " + Thread.currentThread().name)
         open("/", GooglePage::class.java)
-            .searchFor("rasputin")
-            .ensureResultsContains("Grigori Rasputin")
+            .searchFor("metallica")
+            .ensureResultsContains("Metallica")
     }
 
 }
