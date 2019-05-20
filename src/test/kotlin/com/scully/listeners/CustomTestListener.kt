@@ -6,7 +6,6 @@ import io.qameta.allure.Attachment
 import org.testng.ITestContext
 import org.testng.ITestListener
 import org.testng.ITestResult
-import java.io.IOException
 import java.nio.file.Files
 
 class CustomTestListener : ITestListener {
@@ -14,22 +13,13 @@ class CustomTestListener : ITestListener {
     override fun onTestStart(result: ITestResult) {}
 
     override fun onTestSuccess(result: ITestResult) {
-        try {
-            `Screen shot`()
-        } catch (e: IOException) {
-            throw RuntimeException("Error creating screenshot")
-        }
-
+        `Screen shot`()
         `HTML Source Code`()
     }
 
 
     override fun onTestFailure(result: ITestResult) {
-        try {
-            `Screen shot`()
-        } catch (e: IOException) {
-            throw RuntimeException("Error creating screenshot")
-        }
+        `Screen shot`()
         `HTML Source Code`()
     }
 
@@ -47,7 +37,6 @@ class CustomTestListener : ITestListener {
     }
 
     @Attachment(type = "image/png")
-    @Throws(IOException::class)
     private fun `Screen shot`(): ByteArray {
         val screenShot = Screenshots.takeScreenShotAsFile()
         return Files.readAllBytes(screenShot.toPath())
