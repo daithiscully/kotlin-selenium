@@ -25,7 +25,7 @@
         <maven-compiler.version>3.8.0</maven-compiler.version>
         <maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
         <aspectj.version>1.9.2</aspectj.version>
-        <testSuite>testng.xml</testSuite>
+        <test-suite>testng.xml</test-suite>
     </properties>
 
     <dependencies>

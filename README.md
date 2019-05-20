@@ -38,10 +38,10 @@ test suite. The sample test suite file can be found in the [testng.xml](testng.x
 
 Once your test suite is created we can now execute a maven test build via:
 
-`mvn clean test -DtestSuite="testng.xml"`
+`mvn clean test -Dtest-suite="testng.xml"`
 
-Note: In the pom.xml file there is also a default property value for the testSuite, which will be 
-used if no `-DtestSuite` is provided.
+Note: In the pom.xml file there is also a default property value for the test-suite, which will be 
+used if no `-Dtest-suite` is provided.
 
 By default the tests will be executed on the Selenium node created for the Chrome browser. If you 
 would like to execute the tests on the Firefox configured Selenium node, add the following system 
