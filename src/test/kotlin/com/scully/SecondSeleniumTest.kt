@@ -10,9 +10,10 @@ class SecondSeleniumTest : BaseTest() {
     fun `Test a google search for Trivium`() {
         logger.info { "Running the Second Selenium Test" }
         println("Thread: " + Thread.currentThread().name)
-        open("/", GooglePage::class.java)
+        val searchResultsPage = open("/", GooglePage::class.java)
             .searchFor("Trivium")
-            .ensureResultsContains("Trivium Pillars of Serpents")
+        searchResultsPage.getResults()
+        searchResultsPage.ensureResultsContains("Trivium Pillars of Serpents")
     }
 
 }
